@@ -14,7 +14,7 @@ int main()
     cin >> t;
     while (t--)
     {
-        cout << "Case #" << tc << ": ";
+        cout << "Case #" << tc++ << ": ";
         solve();
     }
 }
