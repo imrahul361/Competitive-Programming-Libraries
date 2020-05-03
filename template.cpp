@@ -27,6 +27,8 @@ typedef long long ll;
 typedef pair<int, int> pii;
 typedef pair<ll, ll> pll;
 typedef pair<string, string> pss;
+typedef pair<string, ll> psl;
+typedef vector<psl> vsl;
 typedef vector<int> vi;
 typedef vector<string> vs;
 typedef vector<vi> vvi;
@@ -50,7 +52,7 @@ const int INF = 1e9;
 
 double PI = acos(-1);
 
-void addEdge(vector<int> adj[], int u, int v)
+void addEdge(vector<ll> adj[], ll u, ll v)
 {
     adj[u].push_back(v);
     adj[v].push_back(u);
@@ -58,37 +60,37 @@ void addEdge(vector<int> adj[], int u, int v)
 
 // A utility function to do DFS of graph
 // recursively from a given vertex u.
-void DFSUtil(int u, vector<int> adj[],
+void DFSUtil(int u, vector<ll> adj[],
              vector<bool> &visited)
 {
     visited[u] = true;
     cout << u << " ";
-    for (int i = 0; i < adj[u].size(); i++)
+    for (ll i = 0; i < adj[u].size(); i++)
         if (visited[adj[u][i]] == false)
             DFSUtil(adj[u][i], adj, visited);
 }
 
 // This function does DFSUtil() for all
 // unvisited vertices.
-void DFS(vector<int> adj[], int V)
+void DFS(vector<ll> adj[], ll V)
 {
     vector<bool> visited(V, false);
-    for (int u = 0; u < V; u++)
+    for (ll u = 0; u < V; u++)
         if (visited[u] == false)
             DFSUtil(u, adj, visited);
 }
 
-void SieveOfEratosthenes(int *pno)
+void SieveOfEratosthenes(ll *pno)
 {
-    for (int i = 2; i < 1000005; i++)
+    for (ll i = 2; i < 1000005; i++)
     {
         pno[i] = 1;
     }
-    for (int i = 2; i * i <= 1000005; i++)
+    for (ll i = 2; i * i <= 1000005; i++)
     {
         if (pno[i] == 1)
         {
-            for (int j = i * i; j <= 1000005; j += i)
+            for (ll j = i * i; j <= 1000005; j += i)
                 pno[j] = 0;
         }
     }
@@ -151,7 +153,7 @@ void print(T n)
 int main()
 {
 
-    //  FAST_IO
+    FAST_IO
 
 #ifndef ONLINE_JUDGE
     freopen("input.txt", "r", stdin);
