@@ -13,6 +13,7 @@
 #define PQ(type) priority_queue<type>
 #define PQD(type) priority_queue<type, vector<type>, greater<type>>
 #define ITR ::iterator it
+#define TLE cerr << "Time elapsed: " << clock() / (double)CLOCKS_PER_SEC << endl
 #define t     \
     int t;    \
     cin >> t; \
