@@ -21,6 +21,9 @@
 #define TR(container, it) for (typeof(container.begin()) it = container.begin(); it != container.end(); it++)
 #define setbits(x) __builtin_popcountll(n)
 #define zrobits(x) __builtin_ctzll(x)
+#define getbit(x,k) (x&(1<<k))
+#define clearbit(x,k) (x&~(1<<k))
+#define setbit(x,k) (x|(1<<k)) 
 
 using namespace std;
 
@@ -34,6 +37,7 @@ typedef vector<int> vi;
 typedef vector<string> vs;
 typedef vector<vi> vvi;
 typedef vector<pii> vii;
+typedef vector<pll> vll;
 typedef vector<ll> vl;
 typedef vector<vl> vvl;
 typedef map<string, string> dic;
@@ -45,13 +49,18 @@ typedef struct data
 } trie;
 
 const double EPS = 1e-9;
-#ifdef int
-const int INF = 1e16;
+#ifdef ll
+const ll INF = 1e16;
 #else
 const int INF = 1e9;
 #endif
 
 double PI = acos(-1);
+
+ll ceil(ll a, ll b)
+{
+    return (a + b - 1) / b;
+}
 
 void addEdge(vector<ll> adj[], ll u, ll v)
 {
@@ -144,4 +153,6 @@ int main()
     freopen("input.txt", "r", stdin);
     freopen("output.txt", "w", stdout);
 #endif
+
+    TLE;
 }
