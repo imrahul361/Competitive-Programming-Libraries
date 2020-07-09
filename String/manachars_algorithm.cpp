@@ -1,4 +1,4 @@
-
+int P =[SIZE*2];
 // Transform S into new string with special characters inserted.
 string convertToNewString(const string &s)
 {
