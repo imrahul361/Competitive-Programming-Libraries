@@ -18,16 +18,16 @@ void beforeKMP(string pattern, int f[])
         f[i] = k + 1;
     }
 }
- 
-//check whether string contains pattern 
+
+//check whether string contains pattern
 bool KMP(string pattern, string target)
 {
     int m = pattern.length();
     int n = target.length();
-    int f[m];     
-    beforeKMP(pattern, f);     
+    int f[m];
+    beforeKMP(pattern, f);
     int i = 0;
-    int k = 0;        
+    int k = 0;
     while (i < n)
     {
         if (k == -1)
@@ -47,7 +47,7 @@ bool KMP(string pattern, string target)
     }
     return 0;
 }
- 
+
 int main()
 {
     string tar = "demo text pattern";
