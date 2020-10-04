@@ -15,16 +15,16 @@ void preKMP(string pattern, int f[])
         f[i] = k + 1;
     }
 }
- 
-//check whether target string contains pattern 
+
+//check whether target string contains pattern
 bool KMP(string pattern, string target)
 {
     int m = pattern.length();
     int n = target.length();
-    int f[m];     
-    preKMP(pattern, f);     
+    int f[m];
+    preKMP(pattern, f);
     int i = 0;
-    int k = 0;        
+    int k = 0;
     while (i < n)
     {
         if (k == -1)
