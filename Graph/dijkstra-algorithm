@@ -1,0 +1,35 @@
+void Dijkstra(int graph[n][n],int src) // adjacency matrix used is of the order nxn
+{
+	int dist[n]; // integer array to calculate minimum distance for each node.                            
+	bool Tset[n];// boolean array to mark visted/unvisted for each node.
+	
+	// set the nodes with infinity distance
+	// except for the initial node and mark
+	// them unvisited. 
+        int i;
+	for(i = 0; i<n; i++)
+	{
+		dist[i] = INT_MAX;
+		Tset[i] = false;	
+	}
+	
+	dist[src] = 0;   // Source vertex distance is set to zero.             
+	
+	for(int i = 0; i<n; i++)                           
+	{
+		int m=minimumDist(dist,Tset); // vertex not yet included.
+		Tset[m]=true;// m with minimum distance included in Tset.
+		for(int i = 0; i<n; i++)                  
+		{
+			// Updating the minimum distance for the particular node.
+			if(!Tset[i] && graph[m][i] && dist[m]!=INT_MAX && dist[m]+graph[m][i]<dist[i])
+				dist[i]=dist[m]+graph[m][i];
+		}
+	}
+	cout<<"Vertex\t\tDistance from source"<<endl;
+	for(int i = 0; i<n; i++)                      
+	{ //Printing
+		char str=65+i; // ASCII values for printing A,B,C..
+		cout<<str<<"\t\t\t"<<dist[i]<<endl;
+	}
+}
