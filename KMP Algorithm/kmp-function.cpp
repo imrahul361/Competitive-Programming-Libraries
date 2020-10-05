@@ -1,6 +1,9 @@
+// Hacktoberfest2020 Contribution by Dhrubajyoti Chakraborty
+// KMP Algorithm Implementation
+
 void preKMP(string pattern, int f[])
 {
-    int m = pattern.length(), k;
+    int m = pattern.length(), k; // counts the length of the pattern
     f[0] = -1;
     for (int i = 1; i < m; i++)
     {
@@ -16,11 +19,11 @@ void preKMP(string pattern, int f[])
     }
 }
  
-//check whether target string contains pattern 
+// function to check whether target string contains pattern 
 bool KMP(string pattern, string target)
 {
-    int m = pattern.length();
-    int n = target.length();
+    int m = pattern.length(); 
+    int n = target.length(); // counts the length of the target string for comparison
     int f[m];     
     preKMP(pattern, f);     
     int i = 0;
